@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-app-bar app clipped-left height="50">
-
+-
     </v-app-bar>
   </v-container>
 </template>
@@ -9,12 +9,7 @@
 <script>
 export default {
   name: "NavBar",
-  props: {
-    attrs: {
-      type: Object,
-      default: () => ({}),
-    },
-  },
+  
   data() {
     return {
       oscuro: false,
