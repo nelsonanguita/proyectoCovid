@@ -1,12 +1,7 @@
 <template>
   <v-container>
     <v-app-bar app clipped-left height="50">
-      <v-switch
-        @click="cambioo"
-        inset
-        persistent-hint
-        :label="`Modo oscuro: ${oscuro.toString()}`"
-      ></v-switch>
+
     </v-app-bar>
   </v-container>
 </template>
