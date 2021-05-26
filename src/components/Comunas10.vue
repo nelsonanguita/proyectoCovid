@@ -1,23 +1,34 @@
 <template>
-  <div>
-    <v-hover>
-      <v-card
-        v-if="loaded"
-        hover
-        max-width="250"
-        class="mx-auto pa-6 transition-swing"
-      >
-        <v-subheader>
-          <p>Más casos activos</p>
-          <p />
-        </v-subheader>
-        <v-divider inset></v-divider>
-        <v-list-item dense v-for="(item, i) in listado" :key="i">
-          <p>{{ i + 1 }} - {{ item.name }} {{ item.data }}</p>
-        </v-list-item>
-      </v-card>
-    </v-hover>
-  </div>
+  <v-app>
+    <div>
+      <v-hover>
+        <v-card
+          :loading="loading"
+          hover
+          max-width="250"
+          class="mx-auto pa-2 transition-swing"
+        >
+          <template slot="progress">
+            <v-progress-linear
+              color="deep-purple"
+              height="3"
+              indeterminate
+              
+            ></v-progress-linear>
+          </template>
+          <v-subheader>
+            <p>Más casos activos</p>
+            <p />
+          </v-subheader>
+          <v-divider inset></v-divider>
+          <v-list-item dense v-for="(item, i) in listado" :key="i">
+            <p>{{ i + 1 }} - {{ item.name }} {{ item.data }}</p>
+          </v-list-item>
+        </v-card>
+      </v-hover>
+ 
+    </div>
+  </v-app>
 </template>
 
 <script>
@@ -27,7 +38,8 @@ export default {
   data() {
     return {
       listado: [],
-      loaded: false,
+      active:false,
+      loading:false
     };
   },
   methods: {
@@ -73,37 +85,20 @@ export default {
           }
         }
       });
-      this.loaded = true;
+      this.active=true
+            this.loading = false;
+
+    },
+    reserve() {
+      this.loading = true;
+      setTimeout(() => (this.loading = false), 200);
     },
   },
   created() {
     this.getDatos();
+    this.reserve();
   },
 };
 </script>
 
-<style>
-@media (prefers-color-scheme: dark) {
-  div {
-    --color-bg: rgb(53, 53, 53);
-    --color-text: wheat;
-  }
-
-  div.light-theme {
-    --color-bg: #dddddd;
-    --color-text: #ee6352;
-  }
-}
-
-div {
-  background-color: var(--color-bg);
-}
-
-h1 {
-  color: var(--color-text);
-}
-
-p {
-  color: var(--color-text);
-}
-</style>
+<style></style>

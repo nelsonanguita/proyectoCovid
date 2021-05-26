@@ -1,24 +1,29 @@
-<template >
-  <div id="app"  class="row">
-      <Home/>
-  </div>
+<template>
+  <v-app>
+    <div id="app" 
+>
+      <Home />
+      </div>
+  </v-app>
 </template>
 
 <script>
-
-
-import Home from './views/Home.vue'
+import Home from "./views/Home.vue";
 export default {
-  name: 'App',
+  name: "App",
   components: {
-        Home
-        
+    Home,
   },
- 
-}
+  data(){
+    return{
+
+    }
+  }
+};
 </script>
 
 <style>
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -26,8 +31,9 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 40px;
-  padding:0;
-margin-left: 40px;
-margin-right: 40px;
+  padding: 0;
+  margin-left: 0px;
+  margin-right: 0px;
 }
+
 </style>

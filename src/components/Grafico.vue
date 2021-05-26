@@ -1,4 +1,5 @@
 <template>
+<v-app>
   <div>
     <h1>Estadística por comuna</h1>
         <highcharts
@@ -8,6 +9,8 @@
     ></highcharts>
     
   </div>
+</v-app>
+  
 </template>
 
 <script>
@@ -134,30 +137,4 @@ export default {
 
 <style>
   
-@media (prefers-color-scheme: dark) {
-
-    div  {
-        --color-bg: rgb(53,53,53);
-        --color-text: wheat;
-    }
-  
-    div.light-theme {
-        --color-bg: #DDDDDD;
-        --color-text: #EE6352;
-    }
-    
-}
-
-
-div {
-    background-color: var(--color-bg);
-}
-
-h1 {
-    color: var(--color-text);
-}
-
-p {
-    color: var(--color-text);
-}
 </style>
