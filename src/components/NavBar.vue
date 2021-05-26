@@ -2,9 +2,10 @@
       <v-app-bar id="encabezado" app clipped-left height="50" >
         <v-switch
           :class="theme"
-      @click="$vuetify.theme.dark = ! $vuetify.theme.dark"
+          @click="$vuetify.theme.dark = ! $vuetify.theme.dark"
           inset
-          :label="`Modo  ${!oscuro ? 'Claro' : 'Oscuro'}`"
+          :label="`Modo  ${!oscuro ? 'Oscuro' : 'Claro'}`"
+          @change="cambio"
         ></v-switch>
       </v-app-bar>
 </template>
@@ -45,7 +46,9 @@ export default {
         console.log(document.body)
     },
   },
-  watch: {},
+  watch: {
+
+  },
 };
 </script>
 
