@@ -1,26 +1,31 @@
 <template>
   <div  >
     <NavBar />
-
+<v-container fluid>
+  <v-responsive>  
+    
   <v-row>
-       <v-col xs="4" sm="8" md="2" xl="4">
+       <v-col xs="8" sm="8" md="2" xl="4">
           <Comunas10 />
         </v-col>
 
 
-      <v-col xs="4" sm="8" md="8" xl="5">
+      <v-col xs="8" sm="8" md="8" xl="5">
           <Grafico />
       </v-col>
 
 
-    <v-card>
-        <v-col xs="4" sm="8" md="2" xl="3">
+        <v-col xs="8" sm="8" md="2" xl="3">
           <Comunas10 />
         </v-col>
-    </v-card>
-
-
     </v-row>
+
+
+
+  </v-responsive>
+
+</v-container>
+  
   </div>
 </template>
 
