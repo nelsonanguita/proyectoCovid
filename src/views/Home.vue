@@ -3,18 +3,18 @@
     <NavBar />
 
   <v-row>
-       <v-col xs="12" sm="3" md="2" xl="4">
+       <v-col xs="4" sm="8" md="2" xl="4">
           <Comunas10 />
         </v-col>
 
 
-      <v-col xs="12" sm="12" md="8" xl="5">
+      <v-col xs="4" sm="8" md="8" xl="5">
           <Grafico />
       </v-col>
 
 
     <v-card>
-        <v-col xs="12" sm="12" md="2" xl="3">
+        <v-col xs="4" sm="8" md="2" xl="3">
           <Comunas10 />
         </v-col>
     </v-card>
