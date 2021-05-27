@@ -1,13 +1,12 @@
 <template>
-      <v-app-bar id="encabezado" app clipped-left height="50" >
-        <v-switch
-          :class="theme"
-          @click="$vuetify.theme.dark = ! $vuetify.theme.dark"
-          inset
-          :label="`Modo  ${!oscuro ? 'Oscuro' : 'Claro'}`"
-          @change="cambio"
-        ></v-switch>
-      </v-app-bar>
+  <v-app-bar id="encabezado" app clipped-left height="50">
+    <v-switch
+      @click="$vuetify.theme.dark = !$vuetify.theme.dark"
+      @change="cambio"
+      inset
+      :label="`Modo  ${!oscuro ? 'Oscuro' : 'Claro'}`"
+    ></v-switch>
+  </v-app-bar>
 </template>
 
 <script>
@@ -33,22 +32,21 @@ export default {
         this.theme = document.body.classList.contains("light-theme")
           ? "light"
           : "dark";
+        localStorage.setItem("theme--dark", true);
       } else {
         document.body.classList.toggle("dark-theme");
         this.theme = document.body.classList.contains("dark-theme")
           ? "dark"
           : "light";
+        localStorage.setItem("theme--dark", false);
       }
-      localStorage.setItem("theme", this.theme);
-        //document.body.theme='theme---'+this.theme
-        console.log(document.body.encabezado)
-        document.body.encabezado.theme='theme---'+this.theme
-        console.log(document.body)
+      document.body.classList.remove(this.theme);
     },
   },
-  watch: {
-
+  created() {
+    this.cambio();
   },
+  watch: {},
 };
 </script>
 
