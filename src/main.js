@@ -6,8 +6,10 @@ import vuetify from '@/plugins/vuetify'
 import '@babel/polyfill'
 import 'roboto-fontface/css/roboto/roboto-fontface.css'
 import '@mdi/font/css/materialdesignicons.css'
-
 Vue.config.productionTip = false
+
+import VueEllipseProgress from 'vue-ellipse-progress';
+Vue.use(VueEllipseProgress);
 
 import Highcharts from 'highcharts'
 import HighchartsVue from 'highcharts-vue'

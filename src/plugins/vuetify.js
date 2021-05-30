@@ -8,12 +8,21 @@ Vue.use(Vuetify);
 export default new Vuetify({
   icons: {
     iconfont: 'mdi', //'mdi'// || 'mdiSvg' || 'md' || 'fa' || 'fa4' || 'faSvg'
+    values: {
+      product: 'mdi-dropbox',
+      support: 'mdi-lifebuoy',
+      steam: 'mdi-steam-box',
+      pc: 'mdi-desktop-classic',
+      xbox: 'mdi-xbox',
+      playstation: 'mdi-playstation',
+      switch: 'mdi-nintendo-switch',
+    },
   },
   theme: {
       options: {
         theme: { 
           dark: false ,
-          default: 'dark',
+          default: 'light',
           disable: false,
         },
         customProperties: true,

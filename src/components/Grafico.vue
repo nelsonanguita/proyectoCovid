@@ -1,12 +1,18 @@
 <template>
 <v-app>
-  <div>
+  <div class="abs-center">
+    <v-card  elevation="12" class="mx-auto  pa-2 align-items-center">
     <h1>Estadística por comuna</h1>
-        <highcharts
+      <highcharts
       v-if="loaded"
-      class="chart highcharts-figure"
+      id="destacado"
+      class=" chart highcharts-figure"
       :options="chartOptions"
+      
     ></highcharts>
+
+    </v-card>
+      
     
   </div>
 </v-app>
@@ -77,6 +83,8 @@ export default {
         chart: {
           type: "line",
            backgroundColor: 'transparent',
+                 //  width: 600
+
       //       backgroundColor:{
         // },
         },
@@ -135,6 +143,11 @@ export default {
 };
 </script>
 
-<style>
-  
+<style scoped>
+
+@media only screen  {
+    #destacado {
+        max-width: 800
+    }
+  }
 </style>

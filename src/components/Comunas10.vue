@@ -1,8 +1,10 @@
 <template>
   <v-app>
-    <div>
+    <div >
       <v-hover>
         <v-card
+
+        elevation="24"
           :loading="loading"
           hover
           max-width="250"
@@ -16,10 +18,10 @@
               
             ></v-progress-linear>
           </template>
-          <v-subheader>
-            <p>Más casos activos</p>
-            <p />
-          </v-subheader>
+             <v-card-title class="group " >
+                MÁS CASOS ACTIVOS 
+                </v-card-title>
+     
           <v-divider inset></v-divider>
           <v-list-item dense v-for="(item, i) in listado" :key="i">
             <p>{{ i + 1 }} - {{ item.name }} {{ item.data }}</p>
@@ -85,7 +87,6 @@ export default {
           }
         }
       });
-      this.active=true
             this.loading = false;
 
     },
@@ -101,4 +102,15 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+
+ .abs-center {
+
+
+  display: flex;
+  align-items: left;
+  justify-content: left;
+  min-height: 100vh;
+  
+}
+</style>

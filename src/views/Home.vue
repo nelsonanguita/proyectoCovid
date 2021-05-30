@@ -1,21 +1,23 @@
 <template>
   <div  >
     <NavBar />
-<v-container fluid>
+<v-container  fluid>
   <v-responsive>  
-    
-  <v-row>
-       <v-col xs="8" sm="8" md="2" xl="4">
-          <Comunas10 />
+        <h1>Información COVID Chile</h1>
+
+  <v-row class="mx-auto ">
+       <v-col  xs="8" sm="8" md="3" xl="3">
+          <InfoDiaria />
+         
         </v-col>
 
 
-      <v-col xs="8" sm="8" md="8" xl="5">
+      <v-col xs="8" sm="8" md="6" xl="6">
           <Grafico />
       </v-col>
 
 
-        <v-col xs="8" sm="8" md="2" xl="3">
+        <v-col xs="8" sm="8" md="3" xl="3">
           <Comunas10 />
         </v-col>
     </v-row>
@@ -32,17 +34,17 @@
 <script>
 import Comunas10 from "../components/Comunas10.vue";
 import Grafico from "../components/Grafico.vue";
-//import ModoOscuro from "../components/ModoOscuro.vue";
 import NavBar from "../components/NavBar.vue";
-import DatosDiarios from "../components/DatosDiarios.vue";
+import InfoDiaria from "../components/InfoDiaria";
+
 
 export default {
   components: {
     Grafico,
     Comunas10,
-    //ModoOscuro,
+    InfoDiaria,
     NavBar,
-    DatosDiarios,
+    
   },
   data() {
     return {

@@ -1,11 +1,15 @@
-<template>
-  <v-app-bar id="encabezado" app clipped-left height="50">
-    <v-switch
-      @click="$vuetify.theme.dark = !$vuetify.theme.dark"
-      @change="cambio"
-      inset
-      :label="`Modo  ${!oscuro ? 'Oscuro' : 'Claro'}`"
-    ></v-switch>
+<template >
+  <v-app-bar class="pa-2 align-center"   app clipped-left height="50">
+    <span class="pa-2 align-center" >
+      <v-switch
+        fluid
+        align-center
+        :dark="setTheme"
+        @change="cambio"
+        inset
+        :label="`Modo  ${!oscuro ? 'Oscuro' : 'Claro'}`"
+      ></v-switch>
+    </span>
   </v-app-bar>
 </template>
 
@@ -17,34 +21,58 @@ export default {
     return {
       oscuro: false,
       theme: "",
+      leyenda: "",
     };
   },
   methods: {
     cambio() {
       this.oscuro = this.oscuro = !this.oscuro;
-
+      localStorage.setItem("theme", this.oscuro ? "dark" : "light");
+    },
+    compruebaTheme() {
       const prefresDarkScheme = window.matchMedia(
         "(prefers-color-scheme: dark)"
       );
 
-      if (prefresDarkScheme.matches) {
+      let theme;
+
+      if (!prefresDarkScheme.matches) {
         document.body.classList.toggle("light-theme");
-        this.theme = document.body.classList.contains("light-theme")
+        theme = document.body.classList.contains("light-theme")
           ? "light"
           : "dark";
-        localStorage.setItem("theme--dark", true);
       } else {
         document.body.classList.toggle("dark-theme");
-        this.theme = document.body.classList.contains("dark-theme")
+        theme = document.body.classList.contains("dark-theme")
           ? "dark"
           : "light";
-        localStorage.setItem("theme--dark", false);
       }
-      document.body.classList.remove(this.theme);
+      localStorage.setItem("theme", theme);
+    },
+    verificaLocal() {
+      const currentTheme = localStorage.getItem("theme");
+      if (currentTheme === "dark") {
+        document.body.classList.toggle("dark-theme");
+        this.oscuro = true;
+      } else if (currentTheme === "light") {
+        document.body.classList.toggle("light-theme");
+        this.oscuro = false;
+      } else {
+        this.compruebaTheme();
+      }
     },
   },
   created() {
-    this.cambio();
+    this.verificaLocal();
+  },
+  computed: {
+    setTheme() {
+      if (this.oscuro === true) {
+        return (this.$vuetify.theme.dark = true);
+      } else {
+        return (this.$vuetify.theme.dark = false);
+      }
+    },
   },
   watch: {},
 };
