@@ -3,21 +3,21 @@
     <NavBar />
 <v-container  fluid>
   <v-responsive>  
-        <h1>Información COVID Chile</h1>
+        <h1>Información COVID Chile --</h1>
 
   <v-row class="mx-auto ">
-       <v-col  xs="8" sm="12" md="3" xl="3">
+       <v-col  xs="12" sm="12" md="3" xl="3">
           <InfoDiaria />
          
         </v-col>
 
 
-      <v-col xs="8" sm="12" md="6" xl="6">
+      <v-col xs="12" sm="12" md="6" xl="6">
           <Grafico />
       </v-col>
 
 
-        <v-col xs="8" sm="12" md="3" xl="3">
+        <v-col xs="12" sm="12" md="3" xl="3">
           <Comunas10 />
         </v-col>
     </v-row>
