@@ -1,7 +1,8 @@
 <template >
   <v-app-bar class="pa-2 align-center"   app clipped-left height="50">
     <span class="pa-2 align-center" >
-      <v-switch
+      <v-card-actions class="px-0 pb-0">  
+         <v-switch
         fluid
         align-center
         :dark="setTheme"
@@ -9,6 +10,8 @@
         inset
         :label="`Modo  ${!oscuro ? 'Oscuro' : 'Claro'}`"
       ></v-switch>
+      </v-card-actions>
+     
     </span>
   </v-app-bar>
 </template>
