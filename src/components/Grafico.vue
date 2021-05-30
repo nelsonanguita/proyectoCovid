@@ -3,6 +3,9 @@
   <div class="abs-center">
     <v-card  elevation="12" class="mx-auto  pa-2 align-items-center">
     <h1>Estadística por comuna</h1>
+    <v-card>
+      <button>Agregar comuna</button>
+    </v-card>
       <highcharts
       v-if="loaded"
       id="destacado"
