@@ -159,7 +159,7 @@ export default {
 <style scoped>
 @media only screen {
   #destacado {
-    max-width: 500;
+    max-width: 700;
   }
 }
 
