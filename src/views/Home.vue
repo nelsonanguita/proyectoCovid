@@ -12,7 +12,7 @@
         </v-col>
 
 
-      <v-col xs="8" sm="8" md="6" xl="6">
+      <v-col xs="8" sm="12" md="6" xl="6">
           <Grafico />
       </v-col>
 
