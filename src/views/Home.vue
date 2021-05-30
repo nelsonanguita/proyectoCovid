@@ -4,10 +4,9 @@
 <v-container  fluid>
   <v-responsive>  
         <h1>Información COVID Chile</h1>
-        <h1>te amo</h1>
 
   <v-row class="mx-auto ">
-       <v-col  xs="8" sm="8" md="3" xl="3">
+       <v-col  xs="8" sm="12" md="3" xl="3">
           <InfoDiaria />
          
         </v-col>
@@ -18,7 +17,7 @@
       </v-col>
 
 
-        <v-col xs="8" sm="8" md="3" xl="3">
+        <v-col xs="8" sm="12" md="3" xl="3">
           <Comunas10 />
         </v-col>
     </v-row>
