@@ -1,34 +1,31 @@
 <template>
   <v-app>
-    <div >
+    <div>
       <v-hover>
         <v-card
-
-        elevation="24"
+          elevation="24"
           :loading="loading"
           hover
           max-width="250"
-          class="mx-auto pa-2 transition-swing"
+          class="mx-auto transition-swing"
         >
           <template slot="progress">
             <v-progress-linear
               color="deep-purple"
               height="3"
               indeterminate
-              
             ></v-progress-linear>
           </template>
-             <v-card-title class="group " >
-                MÁS CASOS ACTIVOS 
-                </v-card-title>
-     
+          <v-card-title class="title">
+            MÁS CASOS ACTIVOS
+          </v-card-title>
+
           <v-divider inset></v-divider>
           <v-list-item dense v-for="(item, i) in listado" :key="i">
             <p>{{ i + 1 }} - {{ item.name }} {{ item.data }}</p>
           </v-list-item>
         </v-card>
       </v-hover>
- 
     </div>
   </v-app>
 </template>
@@ -40,8 +37,8 @@ export default {
   data() {
     return {
       listado: [],
-      active:false,
-      loading:false
+      active: false,
+      loading: false,
     };
   },
   methods: {
@@ -87,8 +84,7 @@ export default {
           }
         }
       });
-            this.loading = false;
-
+      this.loading = false;
     },
     reserve() {
       this.loading = true;
@@ -103,14 +99,14 @@ export default {
 </script>
 
 <style scoped>
-
- .abs-center {
-
-
+.abs-center {
   display: flex;
   align-items: left;
   justify-content: left;
   min-height: 100vh;
-  
+}
+
+.title {
+  text-align: center;
 }
 </style>
