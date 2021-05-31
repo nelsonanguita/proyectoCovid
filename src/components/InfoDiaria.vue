@@ -18,26 +18,25 @@
           max-width="344"
           color="red darken-1"
         >
-          <span class="group  pa-2 align-center">
-            <v-avatar color="" size="65">
+          <span class="group pa-2 align-center">
+            
               <v-icon x-large> mdi-emoticon-sick-outline </v-icon>
-            </v-avatar>
-            <v-card-title>Casos nuevos</v-card-title>
-            <v-card-title>{{ casosDiarios }}</v-card-title>
+            
+            <v-card-title class="titulo" >Casos nuevos</v-card-title>
+            <v-card-title class="titulo">{{ casosDiarios }}</v-card-title>
           </span>
         </v-card>
 
         <v-card
-          class="mx-auto mt-4 pa-2 transition-swing"
+          class="mx-auto mt-4 pa-2  transition-swing"
           max-width="344"
           color="green"
           elevation="5"
         >
           <span class="group pa-2 align-center">
             <v-icon x-large> mdi-virus-outline</v-icon>
-
-            <v-card-title>Activos</v-card-title>
-            <v-card-title mensaje=1234 > {{ casosActivos }}</v-card-title>
+            <v-card-title class="titulo">Activos</v-card-title>
+            <v-card-title class="titulo"> {{ casosActivos }}</v-card-title>
           </span>
         </v-card>
 
@@ -50,8 +49,8 @@
           <span class="group pa-2 align-center">
             <v-icon x-large> mdi-virus</v-icon>
 
-            <v-card-title>Casos Totales</v-card-title>
-            <v-card-title>{{ casosTotales }}</v-card-title>
+            <v-card-title class="titulo">Casos Totales</v-card-title>
+            <v-card-title class="titulo">{{ casosTotales }}</v-card-title>
           </span>
         </v-card>
 
@@ -64,8 +63,8 @@
           <span class="group pa-2">
             <v-icon x-large> mdi-hospital </v-icon>
 
-            <v-card-title>Fallecidos</v-card-title>
-            <v-card-title>{{ fallecidos }}</v-card-title>
+            <v-card-title class="titulo">Fallecidos</v-card-title>
+            <v-card-title class="titulo">{{ fallecidos }}</v-card-title>
           </span>
         </v-card>
       </v-card>
@@ -79,7 +78,7 @@ export default {
     props:{
     mensaje:{
       type:String,
-      default:"0"
+      default:""
     }
   },
 
@@ -89,7 +88,7 @@ export default {
       casosDiarios: 0,
       casosActivos: 0,
       casosTotales: 0,
-      fallecidos: 0,
+      fallecidos: "-",
     };
   },
   methods: {
@@ -106,7 +105,7 @@ export default {
     completDatos(csv) {
       var lines = csv.split("\n");
       var headers = lines[0].split(",");
-      for (var i = lines.length - 2; i < lines.length - 1; i++) {
+      for (var i = lines.length - 2; i < lines.length ; i++) {
         var currentline = lines[i].split(",");
         for (var j = 0; j < 1; j++) {
           if (
@@ -184,7 +183,7 @@ export default {
       this.casosDiarios = this.resultado[7];
       this.casosActivos = this.resultado[5];
       this.casosTotales = this.resultado[2];
-      this.fallecidos = this.resultado[4];
+      //this.fallecidos = this.resultado[4];
     },
   },
   created() {
@@ -203,4 +202,10 @@ export default {
 .title {
   text-align: center;
 }
+
+.titulo {
+font-size: calc(0.8em + 0.5vw);
+line-height: 0em;
+padding: 0em;
+margin: 0em;}
 </style>

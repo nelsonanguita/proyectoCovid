@@ -4,10 +4,9 @@
 <v-container  fluid>
   <v-responsive >  
         <h1>Información COVID Chile</h1>
-              <h1>{{mensaje}}</h1>
   <v-row  class="mx-auto ">
        <v-col cols="12"  xs="12" sm="12" md="3" xl="3">
-          <InfoDiaria mensaje="holaaa"/>
+          <InfoDiaria />
        </v-col>
 
 
@@ -44,7 +43,7 @@ export default {
     Comunas10,
     InfoDiaria,
     NavBar,
-    
+    prueba:"chau"
   },
   data() {
     return {
