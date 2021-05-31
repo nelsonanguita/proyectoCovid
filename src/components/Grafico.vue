@@ -51,10 +51,9 @@ export default {
         let data = lines[i].split(",");
         let totales = [];
         if (
-          data[2] == "Pudahuel" ||
-          (data[2] == "Lo Prado" &&
+          data[2] == "Pudahuel" &&
             data[2] !== "Totales" &&
-            !(data[2].indexOf("Desconocido ") > -1))
+            !(data[2].indexOf("Desconocido ") > -1)
         ) {
           name = data[2].toUpperCase();
           color = this.colorHEX();

@@ -4,10 +4,10 @@
 <v-container  fluid>
   <v-responsive >  
         <h1>Información COVID Chile</h1>
-
+              <h1>{{mensaje}}</h1>
   <v-row  class="mx-auto ">
        <v-col cols="12"  xs="12" sm="12" md="3" xl="3">
-          <InfoDiaria />
+          <InfoDiaria mensaje="holaaa"/>
        </v-col>
 
 
@@ -38,6 +38,7 @@ import InfoDiaria from "../components/InfoDiaria";
 
 
 export default {
+
   components: {
     Grafico,
     Comunas10,
@@ -48,6 +49,7 @@ export default {
   data() {
     return {
       theme: "",
+      mensaje: "",
     };
   },
   watch: {
