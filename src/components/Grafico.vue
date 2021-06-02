@@ -3,6 +3,9 @@
     <div >
       <v-card elevation="12" class="mx-auto align-items-center">
         <h1>Estadística por comuna</h1>
+        <ListaComunas
+         @accion="agregarComuna"
+        />
         <highcharts
           v-if="loaded"
           id="destacado"
@@ -15,8 +18,12 @@
 </template>
 
 <script>
+import ListaComunas from './ListaComunas.vue'
 import axios from "axios";
 export default {
+  components:{
+    ListaComunas
+  },
   data() {
     return {
       Highcharts: Highcharts,
@@ -26,6 +33,8 @@ export default {
       chartOptions: {},
       loaded: false,
       fecha: [],
+
+      temp:[]
     };
   },
   methods: {
@@ -50,11 +59,7 @@ export default {
       for (var i = 1; i < lines.length - 1; i++) {
         let data = lines[i].split(",");
         let totales = [];
-        if (
-          data[2] == "Pudahuel" &&
-            data[2] !== "Totales" &&
-            !(data[2].indexOf("Desconocido ") > -1)
-        ) {
+        if (data[2] == "Pudahuel" &&  data[2] !== "Totales" && !(data[2].indexOf("Desconocido ") > -1)) {
           name = data[2].toUpperCase();
           color = this.colorHEX();
           for (var j = data.length - 18; j < data.length; j++) {
@@ -62,9 +67,16 @@ export default {
           }
 
           this.info.push(new this.capturar(name, totales, color));
+        }else if(data[2] !== "Totales" && !(data[2].indexOf("Desconocido ") > -1)){
+          name = data[2].toUpperCase();
+          color = this.colorHEX();
+          for (var j = data.length - 18; j < data.length; j++) {
+            totales.push(parseInt(data[j]));
+          }
+          this.temp.push(new this.capturar(name, totales, color));
+
         }
       }
-
       this.loaded = true;
       this.getGrafico();
     },
@@ -147,6 +159,23 @@ export default {
         coolor = coolor + this.generarLetra();
       }
       return "#" + coolor;
+    },
+    buscarComuna(val){
+      if (val!="") {
+            return this.temp.filter((item) =>
+        item.name.includes(val.toUpperCase())
+      );
+      }
+        
+    },
+     agregarComuna(){
+      let comuna = localStorage.getItem("Comuna")
+      if (comuna!="") {
+        let busqueda = this.buscarComuna(comuna)
+        this.info.push(new this.capturar(busqueda[0].name, busqueda[0].data, busqueda[0].color));
+        this.getGrafico();
+        busqueda = [];  
+      } 
     },
   },
   created() {

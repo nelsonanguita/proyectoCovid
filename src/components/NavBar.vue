@@ -39,7 +39,7 @@ export default {
 
       let theme;
 
-      if (!prefresDarkScheme.matches) {
+      if (prefresDarkScheme.matches) {
         document.body.classList.toggle("light-theme");
         theme = document.body.classList.contains("light-theme")
           ? "light"
@@ -57,6 +57,7 @@ export default {
       if (currentTheme === "dark") {
         document.body.classList.toggle("dark-theme");
         this.oscuro = true;
+
       } else if (currentTheme === "light") {
         document.body.classList.toggle("light-theme");
         this.oscuro = false;
@@ -70,6 +71,7 @@ export default {
   },
   computed: {
     setTheme() {
+      console.log(this.oscuro)
       if (this.oscuro === true) {
         return (this.$vuetify.theme.dark = true);
       } else {

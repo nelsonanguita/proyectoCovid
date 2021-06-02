@@ -54,6 +54,7 @@
           </span>
         </v-card>
 
+
         <v-card
           class="mx-auto mt-4 pa-2 transition-swing"
           max-width="344"
