@@ -175,6 +175,8 @@ export default {
         this.info.push(new this.capturar(busqueda[0].name, busqueda[0].data, busqueda[0].color));
         this.getGrafico();
         busqueda = [];  
+        localStorage.setItem("Comuna", " ");
+
       } 
     },
   },

@@ -25,13 +25,16 @@
     </div>
 
     <div class="hijo">
-      <ul class="list-group" v-on:click="Accion">
+      <ul 
+      class="list-group" 
+      v-on:click="Accion">
         <v-card :elevation="23">
           <v-list v-if="verLista">
             <v-list-item-group
               :multiple="multiple"
               color="light-blue"
-              v-model="listaAgregar"
+               
+
             >
               <v-list-item
                 v-for="(item, i) in searchComuna"
@@ -39,7 +42,10 @@
                 v-bind:value="item"
               >
                 <v-list-item-content>
-                  <v-select v-text="item"> </v-select>
+                  <v-select 
+                  v-model="search"
+                  v-text="item"
+                  > </v-select>
                 </v-list-item-content>
               </v-list-item>
             </v-list-item-group>
@@ -101,6 +107,8 @@ export default {
       if (this.search != "") {
         localStorage.setItem("Comuna", this.search);
         this.$emit("accion");
+        this.verLista=false;
+        this.search=""
       }
     },
   },
@@ -114,15 +122,17 @@ export default {
   },
   watch: {
     search: function(val, oldval) {
-      if (this.search != "") {
+      if (val != "") {
+        console.log(val+" watch")
         this.verLista = true;
         this.searchComuna.sort((a, b) => b - a);
       } else {
+        console.log("X")
         this.verLista = false;
       }
     },
     listaAgregar: function(val, oldval) {
-      this.search = val;
+     // this.search = val;
       // this.agregarComuna();
       this.listaAgregar = "";
     },
