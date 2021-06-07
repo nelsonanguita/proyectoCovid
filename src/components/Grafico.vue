@@ -59,7 +59,7 @@ export default {
       for (var i = 1; i < lines.length - 1; i++) {
         let data = lines[i].split(",");
         let totales = [];
-        if (data[2] == "Pudahuel" &&  data[2] !== "Totales" && !(data[2].indexOf("Desconocido ") > -1)) {
+        if (data[2] == "" &&  data[2] !== "Totales" && !(data[2].indexOf("Desconocido ") > -1)) {
           name = data[2].toUpperCase();
           color = this.colorHEX();
           for (var j = data.length - 18; j < data.length; j++) {
@@ -78,6 +78,7 @@ export default {
         }
       }
       this.loaded = true;
+      this.obtenerLocalizacion()
       this.getGrafico();
     },
     capturar(name, tol, color) {
@@ -91,7 +92,6 @@ export default {
           type: "line",
           backgroundColor: "transparent",
           //  width: 600
-
           //       backgroundColor:{
           // },
         },
@@ -179,9 +179,39 @@ export default {
 
       } 
     },
+    
+    obtenerLocalizacion() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            this.latitude = position.coords.latitude;
+            this.longitude = position.coords.longitude;
+
+            this.obtenerComuna(this.latitude,this.longitude)
+
+          },
+          (error) => {
+            console.log(error.message);
+          }
+        );
+      } else {
+        console.log("No activado");
+      }
+    },
+  
+    async obtenerComuna(latitud, longitud) {
+      const api = "xoYdydUcdSICyS1dRqDP5pgejHwuZsa22li2lSN5w18";
+      const url = await axios.get(`https://reverse.geocoder.ls.hereapi.com/6.2/reversegeocode.json?apiKey=${api}&mode=retrieveAddresses&prox=${latitud},${longitud}`);
+      
+      let datos = url.data.Response.View[0].Result[0].Location.Address.City
+      localStorage.setItem("Comuna", datos);
+    
+     this.agregarComuna()
+    },
   },
   created() {
     this.getDatos();
+   // this.obtenerLocalizacion();
   },
 };
 </script>

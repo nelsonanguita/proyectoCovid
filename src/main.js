@@ -18,8 +18,8 @@ Vue.use(HighchartsVue, {
 })
 
 
-
 new Vue({
+ 
   router,
   store,
   vuetify,
