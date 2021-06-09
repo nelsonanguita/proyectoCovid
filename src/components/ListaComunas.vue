@@ -23,19 +23,19 @@
         </v-col>
       </span>
     </div>
-
-    <div class="hijo">
-      <ul class="list-group" v-on:click="Accion">
-        <v-card :elevation="23">
+    <div class="hijo" >
+      <ul class="list-group" >
+        <v-card  :elevation="23">
           <v-list v-if="verLista">
-            <v-list-item-group :multiple="multiple" color="light-blue">
+            <v-list-item-group  :multiple="multiple" color="light-blue" v-model="listaAgregar" >
               <v-list-item
+              
                 v-for="(item, i) in searchComuna"
                 :key="i"
                 v-bind:value="item"
               >
-                <v-list-item-content>
-                  <v-select v-model="search" v-text="item"> </v-select>
+                <v-list-item-content  >
+                  <v-select  v-text="item"> </v-select>
                 </v-list-item-content>
               </v-list-item>
             </v-list-item-group>
@@ -43,6 +43,7 @@
         </v-card>
       </ul>
     </div>
+   
   </div>
 </template>
 
@@ -96,6 +97,7 @@ export default {
       this.search = "";
     },
     Accion() {
+      
       if (this.search != "") {
         localStorage.setItem("Comuna", this.search);
         this.$emit("accion");
@@ -115,24 +117,25 @@ export default {
   watch: {
     search: function(val, oldval) {
       if (val != "") {
-        console.log(val + " watch");
+      //  console.log(val + " watch");
+
         this.verLista = true;
         this.searchComuna.sort((a, b) => b - a);
       } else {
-        console.log("X");
+     //   console.log("X");
         this.verLista = false;
       }
     },
     listaAgregar: function(val, oldval) {
-      // this.search = val;
+       this.search = val;
+       this.Accion()
       // this.agregarComuna();
       this.listaAgregar = "";
     },
   },
   created() {
     this.getComunas();
-    //this.obtenerUbicacion();
-    //this.obtenerLocalizacion();
+
   },
 };
 </script>
