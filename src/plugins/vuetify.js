@@ -21,7 +21,6 @@ export default new Vuetify({
   theme: {
       options: {
         theme: { 
-          dark: false ,
           default: 'light',
           disable: false,
         },

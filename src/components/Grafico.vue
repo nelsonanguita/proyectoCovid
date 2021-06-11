@@ -186,12 +186,11 @@ export default {
           (position) => {
             this.latitude = position.coords.latitude;
             this.longitude = position.coords.longitude;
-
             this.obtenerComuna(this.latitude,this.longitude)
 
           },
           (error) => {
-            alert(error.message)
+            //alert(error.message)
             //console.log(error.message);
           }
         );
@@ -201,17 +200,17 @@ export default {
     },
   
     async obtenerComuna(latitud, longitud) {
-      const api = "G70L9b3NHFMOWtqjJvGtvAFzR0-myefa-5c5cwzP_eM";
+      const api = "xBxkLZwLw6E21-txyCnFy_Hd4oo32F-CUH7rWoShsSg";
       const url = await axios.get(`https://reverse.geocoder.ls.hereapi.com/6.2/reversegeocode.json?apiKey=${api}&mode=retrieveAddresses&prox=${latitud},${longitud}`);
       
       let datos = url.data.Response.View[0].Result[0].Location.Address.City
       localStorage.setItem("Comuna", datos);
-         this.agregarComuna()
+      this.agregarComuna()
     },
   },
   created() {
     this.getDatos();
-    this.obtenerLocalizacion();
+  //  this.obtenerLocalizacion();
   },
 };
 </script>

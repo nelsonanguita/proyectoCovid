@@ -117,12 +117,9 @@ export default {
   watch: {
     search: function(val, oldval) {
       if (val != "") {
-      //  console.log(val + " watch");
-
         this.verLista = true;
         this.searchComuna.sort((a, b) => b - a);
       } else {
-     //   console.log("X");
         this.verLista = false;
       }
     },

@@ -4,12 +4,11 @@
       <v-card
         elevation="12"
         max-width="400"
-        height="550"
+        height="507"
         class=" mx-auto  transition-swing"
       >
         <v-card-title class="group ">
           CASOS DIARIOS
-          {{mensaje}}
         </v-card-title>
 
         <v-card
