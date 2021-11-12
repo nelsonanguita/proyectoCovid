@@ -12,7 +12,7 @@
           elevation="5"
           class="mx-auto  pa-2 transition-swing"
           width="380"
-          height="260"
+          height="280"
                 >
 
         <v-card-title>  
