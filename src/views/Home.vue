@@ -3,6 +3,14 @@
     <NavBar />
 <v-container  fluid>
   <v-responsive >  
+    <v-row>
+            <v-col cols="12"  xs="12" sm="12" md="12" xl="12">
+          <MiniGrafico />
+       </v-col>
+    </v-row>
+ 
+
+
         <h1>Información COVID Chile</h1>
   <v-row  class="mx-auto ">
        <v-col cols="12"  xs="12" sm="12" md="3" xl="3">
@@ -22,6 +30,8 @@
 
 
 
+
+
   </v-responsive>
 
 </v-container>
@@ -34,7 +44,9 @@ import Comunas10 from "../components/Comunas10.vue";
 import Grafico from "../components/Grafico.vue";
 import NavBar from "../components/NavBar.vue";
 import InfoDiaria from "../components/InfoDiaria";
-
+import MiniGrafico from "../components/miniGrafico.vue"
+import CamaUCI from "../components/CamaUCI";
+import GraficoMain from "../components/GraficoMain.vue";
 
 export default {
 
@@ -43,10 +55,13 @@ export default {
     Comunas10,
     InfoDiaria,
     NavBar,
-    prueba:"chau"
-  },
+    GraficoMain,
+    CamaUCI,
+    MiniGrafico
+      },
   data() {
     return {
+
       theme: "",
       mensaje: "",
     };

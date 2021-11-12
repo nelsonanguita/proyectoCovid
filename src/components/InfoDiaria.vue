@@ -88,7 +88,7 @@ export default {
       casosDiarios: 0,
       casosActivos: 0,
       casosTotales: 0,
-      fallecidos: "-",
+      fallecidos: 0,
     };
   },
   methods: {
@@ -103,12 +103,14 @@ export default {
       }
     },
     completDatos(csv) {
-      var lines = csv.split("\n");
-      var headers = lines[0].split(",");
-      for (var i = lines.length - 2; i < lines.length ; i++) {
-        var currentline = lines[i].split(",");
-        for (var j = 0; j < 1; j++) {
-          if (
+      let lines = csv.split("\n");
+      let f =0
+     // var headers = lines[0].split(",");
+      for (let i = lines.length - 3; i < lines.length ; i++) {
+            let currentline = lines[i].split(",");
+        for (let j = 0; j < 1; j++) {
+          if (i>(lines.length - 3)) {
+             if (
             !isNaN(
               parseInt(currentline[3])
                 .toFixed()
@@ -124,9 +126,11 @@ export default {
           currentline[5] = parseInt(currentline[5])
             .toFixed()
             .toString(); //Casos activos
-          currentline[4] = parseInt(currentline[4])
-            .toFixed()
-            .toString(); //Fallecidos
+          currentline[4] = (parseInt(currentline[4]-f))
+
+
+           // .toFixed()
+          //  .toString(); //Fallecidos
           // currentline[1] = parseInt(currentline[1]).toFixed().toString() //Casos nuevos con sintomas
           //currentline[6] = parseInt(currentline[6]).toFixed().toString() //Casos nuevos sin sintomas
 
@@ -156,8 +160,17 @@ export default {
           this.resultado.push(currentline[5]); //casos activos
           this.resultado.push(currentline[6]); //casos sin sintomas
           this.resultado.push(currentline[7]); //casos totales acumulados
+               
+       } else {
+           f = parseInt(currentline[4])
+           // .toFixed() //Fallecidos
+          }
+         
         }
       }
+   
+
+
       //return resresultadoult;
       this.muestroDatos();
     },
@@ -183,7 +196,7 @@ export default {
       this.casosDiarios = this.resultado[7];
       this.casosActivos = this.resultado[5];
       this.casosTotales = this.resultado[2];
-      //this.fallecidos = this.resultado[4];
+      this.fallecidos = this.resultado[4];
     },
   },
   created() {
