@@ -14,7 +14,7 @@
         <v-card
           elevation="5"
           class="mx-auto  pa-2 transition-swing"
-          max-width="344"
+          width="344"
           color="red darken-1"
         >
           <span class="group pa-2 align-center">

@@ -1,65 +1,48 @@
 <template>
   <div>
     <v-row>
-
-
-
-      <v-col cols="12"  xs="7" sm="12" md="6" lg="6" xl="6">
-
-
-
-           <v-card
+      <v-col cols="12" xs="7" sm="12" md="6" lg="6" xl="6">
+        <v-card
           elevation="5"
           class="mx-auto  pa-2 transition-swing"
-          width="380"
+          width="340"
           height="280"
-                >
-
-        <v-card-title>  
-          POSITIVIDAD DE EXÁMENES PCR
-           </v-card-title>
-            <apexchart
-              width="320"
-              type="line"
-              :series="series2"
-              :options="chartOptions"
-            >
-            
+        >
+          <v-card-title primary-title class="justify-center">
+            POSITIVIDAD DE EXÁMENES PCR
+          </v-card-title>
+          <apexchart
+            width="320"
+            type="line"
+            :series="series2"
+            :options="chartOptions"
+          >
           </apexchart>
+        </v-card>
+      </v-col>
 
-      </v-card>
-                </v-col>
-
-      <v-col cols="12"  xs="7" sm="12" md="6" lg="6" xl="6">
-
-       <v-card
+      <v-col cols="12" xs="7" sm="12" md="6" lg="6" xl="6">
+        <v-card
           elevation="5"
-          class="mx-auto transition-swing" 
-
-          width="370"
+          class="mx-auto pa-2 transition-swing"
+          width="340"
           height="240"
-          
-      >
-        <v-card-title>  
-          CAMAS CRITICAS
-           </v-card-title>
-          
-            <apexchart
-              width="320"
-              type="pie"
-              :series="serie"
-              :options="chartOptions2"
-                height="170"
-            >
-            
+        >
+          <v-card-title>
+            CAMAS CRITICAS
+          </v-card-title>
+
+          <apexchart
+            width="320"
+            type="pie"
+            :series="serie"
+            :options="chartOptions2"
+            height="170"
+          >
           </apexchart>
-
-          
-      </v-card>
-                </v-col>
-
+        </v-card>
+      </v-col>
     </v-row>
-   
   </div>
 </template>
 
@@ -115,12 +98,12 @@ export default {
 
                 let total =  currentline[4]
                 if (!isNaN( total )) {
-                    this.resultado.push(parseFloat((total*100).toFixed(2))); //post   
-                    this.categorias.push(currentline[0]).toFixed().toString(); //fecha   
-                }              
+                    this.resultado.push(parseFloat((total*100).toFixed(2))); //post
+                    this.categorias.push(currentline[0]).toFixed().toString(); //fecha
+                }
           }
         }
-      
+
       this.series2.push(new this.objetoDatos("Positividad",this.resultado));
         this.positividad();
       } catch (error) {
@@ -137,12 +120,12 @@ export default {
         for (let i = lines.length - 2; i < lines.length-1; i++) {
           let currentline = lines[i].split(",");
             for (let j = 0; j < 2; j++) {
-                  
+
                if (j<1) {
-                 this.serie.push(parseInt(currentline[2]),parseInt(currentline[3]));  
+                 this.serie.push(parseInt(currentline[2]),parseInt(currentline[3]));
                }
-                  
-                  
+
+
                     // console.log(parseInt(currentline[2]),parseInt(currentline[3]));
 
           }
