@@ -2,6 +2,9 @@
   <div  >
     <NavBar />
 <v-container  fluid>
+
+          <h1>Información COVID Chile</h1>
+
   <v-responsive >  
     <v-row>
             <v-col cols="12"  xs="12" sm="12" md="12" xl="12">
@@ -11,7 +14,6 @@
  
 
 
-        <h1>Información COVID Chile</h1>
   <v-row  class="mx-auto ">
        <v-col cols="12"  xs="12" sm="12" md="3" xl="3">
           <InfoDiaria />

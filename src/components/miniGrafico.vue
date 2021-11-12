@@ -1,19 +1,23 @@
 <template>
   <div>
     <v-row>
-                <v-col cols="12"  xs="7" sm="12" md="6" xl="12">
+
+
+
+      <v-col cols="12"  xs="7" sm="12" md="6" lg="6" xl="6">
+
+
 
            <v-card
           elevation="5"
           class="mx-auto  pa-2 transition-swing"
           max-width="380"
-          height="240"
-          
-      >
+          height="260"
+                >
+
         <v-card-title>  
           POSITIVIDAD DE EXÁMENES PCR
            </v-card-title>
-          
             <apexchart
               width="300"
               type="line"
@@ -23,10 +27,10 @@
             
           </apexchart>
 
-          
       </v-card>
                 </v-col>
-                <v-col cols="12"  xs="5" sm="12" md="6" xl="12">
+
+      <v-col cols="12"  xs="7" sm="12" md="6" lg="6" xl="6">
 
        <v-card
           elevation="5"
