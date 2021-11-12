@@ -11,7 +11,7 @@
            <v-card
           elevation="5"
           class="mx-auto  pa-2 transition-swing"
-          max-width="380"
+          width="380"
           height="260"
                 >
 
@@ -19,7 +19,7 @@
           POSITIVIDAD DE EXÁMENES PCR
            </v-card-title>
             <apexchart
-              width="300"
+              width="320"
               type="line"
               :series="series2"
               :options="chartOptions"
@@ -34,8 +34,9 @@
 
        <v-card
           elevation="5"
-          class="mx-auto  pa-2 transition-swing"
-          max-width="370"
+          class="mx-auto transition-swing" 
+
+          width="370"
           height="240"
           
       >
@@ -44,11 +45,11 @@
            </v-card-title>
           
             <apexchart
-              width="370"
+              width="320"
               type="pie"
               :series="serie"
               :options="chartOptions2"
-                height="120"
+                height="170"
             >
             
           </apexchart>
