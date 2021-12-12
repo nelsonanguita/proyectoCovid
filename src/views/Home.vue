@@ -6,22 +6,14 @@
      
 
       <v-responsive>
-        <v-row>
-          <div> 
-
-          </div>
-        </v-row>
-       <v-row>
+       
+       <v-row class="mx-auto">
           <v-col cols="12" xs="12" sm="12" md="12" xl="12">
             <Vacunados/>
           </v-col>
         </v-row>
 
-        <v-row>
-          <v-col cols="12" xs="12" sm="12" md="12" xl="12">
-           
-          </v-col>
-        </v-row>
+    
 
         <v-row class="mx-auto">
           <v-col cols="12" xs="12" sm="12" md="3" xl="3">
@@ -34,6 +26,12 @@
 
           <v-col cols="12" xs="12" sm="12" md="3" xl="3">
             <Comunas10 />
+          </v-col>
+        </v-row>
+            <v-row class="mx-auto">
+          <v-col cols="12" xs="12" sm="12" md="12" xl="12">
+                       <MiniGrafico />
+
           </v-col>
         </v-row>
       </v-responsive>
@@ -75,4 +73,6 @@ export default {
   },
 };
 </script>
-<style></style>
+<style>
+
+</style>

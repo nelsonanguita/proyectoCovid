@@ -9,7 +9,7 @@
           height="280"
         >
           <v-card-title primary-title class="justify-center">
-            POSITIVIDAD DE EXÁMENES PCR ( HOY = {{positividadDiaria}})
+            POSITIVIDAD DE EXÁMENES PCR ( HOY = {{positividadDiaria}}%)
           </v-card-title>
           <apexchart
             width="320"
