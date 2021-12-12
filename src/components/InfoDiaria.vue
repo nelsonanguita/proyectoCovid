@@ -168,10 +168,6 @@ export default {
          
         }
       }
-   
-
-
-      //return resresultadoult;
       this.muestroDatos();
     },
     muestroDatos() {

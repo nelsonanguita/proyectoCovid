@@ -9,7 +9,7 @@
           height="280"
         >
           <v-card-title primary-title class="justify-center">
-            POSITIVIDAD DE EXÁMENES PCR
+            POSITIVIDAD DE EXÁMENES PCR ( HOY = {{positividadDiaria}})
           </v-card-title>
           <apexchart
             width="320"
@@ -52,6 +52,7 @@ import axios from "axios";
 export default {
   data() {
     return {
+      positividadDiaria:0,
       resultado:[],
       categorias:[],
       serie: [],
@@ -78,7 +79,7 @@ export default {
             xaxis: {
               categories: this.categorias,
             },
-          labels: ['Disponibles ', 'Ocupados '],
+          labels: ['Disponibles ', 'Ocupadas '],
           colors: ['#002FA7', '#E60026'],
           legend: {
           show: true,
@@ -100,12 +101,15 @@ export default {
                 if (!isNaN( total )) {
                     this.resultado.push(parseFloat((total*100).toFixed(2))); //post
                     this.categorias.push(currentline[0]).toFixed().toString(); //fecha
+                    this.positividadDiaria=parseFloat((total*100).toFixed(2))
                 }
           }
         }
 
-      this.series2.push(new this.objetoDatos("Positividad",this.resultado));
+        this.series2.push(new this.objetoDatos("Positividad",this.resultado));
         this.positividad();
+        
+
       } catch (error) {
         console.log(error);
       }
@@ -130,7 +134,6 @@ export default {
 
           }
         }
-        console.log(this.serie)
         this.camasUCI();
 
       } catch (error) {

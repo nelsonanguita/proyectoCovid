@@ -11,6 +11,7 @@ Vue.config.productionTip = false
 import VueEllipseProgress from 'vue-ellipse-progress';
 Vue.use(VueEllipseProgress);
 
+
 import Highcharts from 'highcharts'
 import HighchartsVue from 'highcharts-vue'
 Vue.use(HighchartsVue, {

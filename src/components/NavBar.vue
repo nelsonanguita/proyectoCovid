@@ -71,7 +71,7 @@ export default {
   },
   computed: {
     setTheme() {
-      console.log(this.oscuro)
+      //console.log(this.oscuro)
       if (this.oscuro === true) {
         return (this.$vuetify.theme.dark = true);
       } else {
