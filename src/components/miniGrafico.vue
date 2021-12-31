@@ -4,12 +4,12 @@
       <v-col cols="12" xs="7" sm="12" md="6" lg="6" xl="6">
         <v-card
           elevation="5"
-          class="mx-auto  pa-2 transition-swing"
+          class="mx-auto  transition-swing"
           width="340"
           height="280"
         >
           <v-card-title primary-title class="justify-center">
-            POSITIVIDAD DE EXÁMENES PCR ( HOY = {{positividadDiaria}}%)
+            POSITIVIDAD DE EXÁMENES PCR ( ÚLTIMA {{positividadDiaria}}%)
           </v-card-title>
           <apexchart
             width="320"

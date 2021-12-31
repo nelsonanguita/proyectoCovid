@@ -2,7 +2,8 @@
   <v-layout  wrap  mt-5 
  >
     <v-flex sm6 xs12 md6 lg3>
-      <v-card class="ma-3" max-width="350" max-height="100"      elevation="15" >
+      <v-card class="ma-3" max-width="350" max-height="100"      elevation="15"            :loading="loading"
+>
         <v-list-item>
           <v-list-item-avatar >
             <v-sheet color="orange" width="50" height="50" elevation="1">
@@ -91,10 +92,11 @@ import axios from "axios";
 export default {
   data() {
     return {
-      dosis1: 11111,
-      dosis2: 22222,
-      unica: 333333,
-      refuerzo: 444444,
+      dosis1: "",
+      dosis2: "",
+      unica: "",
+      refuerzo: "",
+      loading:true,
     };
   },
   methods: {
@@ -120,10 +122,18 @@ export default {
         this.unica = new Intl.NumberFormat("de-DE").format(currentline[3]); //unica dosis
         this.refuerzo = new Intl.NumberFormat("de-DE").format(currentline[4]); //refuerzo dosis
       }
+      this.loading = false;
+
+    },
+     reserve() {
+      this.loading = true;
+      setTimeout(() => (this.loading = false), 200);
     },
   },
   created() {
+    this.reserve();
     this.getVacunas();
+       
   },
 };
 </script>

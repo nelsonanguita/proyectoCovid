@@ -3,17 +3,13 @@
     <NavBar />
     <v-container fluid>
       <h1>Información COVID Chile</h1>
-     
 
       <v-responsive>
-       
-       <v-row class="mx-auto">
+        <v-row class="mx-auto">
           <v-col cols="12" xs="12" sm="12" md="12" xl="12">
-            <Vacunados/>
+            <Vacunados />
           </v-col>
         </v-row>
-
-    
 
         <v-row class="mx-auto">
           <v-col cols="12" xs="12" sm="12" md="3" xl="3">
@@ -28,10 +24,9 @@
             <Comunas10 />
           </v-col>
         </v-row>
-            <v-row class="mx-auto">
+        <v-row class="mx-auto">
           <v-col cols="12" xs="12" sm="12" md="12" xl="12">
-                       <MiniGrafico />
-
+            <MiniGrafico />
           </v-col>
         </v-row>
       </v-responsive>
@@ -73,6 +68,4 @@ export default {
   },
 };
 </script>
-<style>
-
-</style>
+<style></style>

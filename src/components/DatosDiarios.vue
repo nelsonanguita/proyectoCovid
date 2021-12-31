@@ -6,10 +6,7 @@
       max-width="250"
       class="mx-auto pa-2 transition-swing"
     >
-      <h1></h1>
-     
-
-
+   
      <vue-ellipse-progress
         :data="datos"
         :progress="progreso"

@@ -7,10 +7,15 @@
         height="507"
         class=" mx-auto  transition-swing"
       >
+      
         <v-card-title class="group ">
           CASOS DIARIOS
         </v-card-title>
 
+        
+
+        <v-card-subtitle>ÚLTIMA ACTUALIZACIÓN {{fecha}}</v-card-subtitle>
+        
         <v-card
           elevation="5"
           class="mx-auto  pa-2 transition-swing"
@@ -84,6 +89,7 @@ export default {
 
   data() {
     return {
+      fecha:"",
       resultado: [],
       casosDiarios: 0,
       casosActivos: 0,
@@ -193,6 +199,7 @@ export default {
       this.casosActivos = this.resultado[5];
       this.casosTotales = this.resultado[2];
       this.fallecidos = this.resultado[4];
+      this.fecha = this.resultado[0];
     },
   },
   created() {
