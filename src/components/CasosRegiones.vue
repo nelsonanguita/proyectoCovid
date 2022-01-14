@@ -11,16 +11,20 @@
           height="410"
         >
           <v-card-title primary-title class="justify-center">
-            Casos en Regiones
+            Casos activos en Regiones
           </v-card-title>
-          <apexchart
-            
-            width="328"
+
+          <v-card-actions class="justify-center">
+            <apexchart
+                        :style="{width: vb_celular ? '1000' : '10'}"
+
             type="treemap"
             :series="series"
             :options="chartOptions"
           >
           </apexchart>
+            </v-card-actions >
+          
         </v-card>
             </v-item-group>
 
@@ -35,6 +39,8 @@ import axios from "axios";
 export default {
   data() {
     return {
+      Width: '50',
+      vb_celular:false,
       data:[],
       series: [],
       chartOptions: {},
@@ -126,6 +132,19 @@ export default {
       this.x = name;
       this.y = cantidad;
     },
+    detectarCelular(){
+      if( navigator.userAgent.match(/Android/i)
+          || navigator.userAgent.match(/webOS/i)
+          || navigator.userAgent.match(/iPhone/i)
+          || navigator.userAgent.match(/iPad/i)
+          || navigator.userAgent.match(/iPod/i)
+          || navigator.userAgent.match(/BlackBerry/i)
+          || navigator.userAgent.match(/Windows Phone/i)
+          )
+           {
+          this.vb_celular=true  
+          }
+    }
 
   },
   created() {
