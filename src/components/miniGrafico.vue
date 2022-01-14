@@ -9,7 +9,7 @@
           height="280"
         >
           <v-card-title primary-title class="justify-center">
-            POSITIVIDAD DE EXÁMENES PCR ( ÚLTIMA {{positividadDiaria}}%)
+            POSITIVIDAD PCR {{positividadDiaria}}%
           </v-card-title>
           <apexchart
             width="320"
@@ -58,7 +58,7 @@ export default {
       serie: [],
       series2: [],
       chartOptions: {},
-            chartOptions2: {},
+      chartOptions2: {},
 
     };
   },
@@ -128,9 +128,7 @@ export default {
                if (j<1) {
                  this.serie.push(parseInt(currentline[2]),parseInt(currentline[3]));
                }
-
-
-                    // console.log(parseInt(currentline[2]),parseInt(currentline[3]));
+               // console.log(parseInt(currentline[2]),parseInt(currentline[3]));
 
           }
         }

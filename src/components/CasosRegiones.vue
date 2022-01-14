@@ -1,0 +1,137 @@
+<template>
+  <div>
+    <v-row>
+      <v-col cols="12" xs="12" sm="12" md="12" lg="12" xl="12">
+            <v-item-group>
+
+        <v-card
+          elevation="5"
+        class=" mx-auto  transition-swing"
+          width="600"
+          height="410"
+        >
+          <v-card-title primary-title class="justify-center">
+            Casos en Regiones
+          </v-card-title>
+          <apexchart
+            
+            width="328"
+            type="treemap"
+            :series="series"
+            :options="chartOptions"
+          >
+          </apexchart>
+        </v-card>
+            </v-item-group>
+
+      </v-col>
+    </v-row>
+  </div>
+</template>
+
+<script>
+import axios from "axios";
+
+export default {
+  data() {
+    return {
+      data:[],
+      series: [],
+      chartOptions: {},
+    };
+  },
+
+  methods: {
+    cargaOpcionesGrafico() {
+      this.chartOptions = {
+        legend: {
+          show: false,
+        },
+        chart: {
+          height: 350,
+          type: "treemap",
+        },
+        title: {
+          //text: "Basic Treemap",
+        },
+        chart:{
+                    toolbar: {
+          show:true,
+          tools: {
+            Selection: true,
+            download:false
+          },
+        },
+        },
+        plotOptions: {
+         treemap: {
+                enableShades: true,
+                shadeIntensity: 0.2,
+                reverseNegativeShade: true,
+                colorScale: {
+                  ranges: [
+                    {
+                      from: 0,
+                      to: 700,
+                      color: '#4CAF50'
+                    },
+                    {
+                      from: 701,
+                      to: 10000,
+                      color: '#ff0000'
+                    }
+                  ]
+                }
+              }
+        }
+      };
+      this.series=[
+        {
+          data :this.data
+          
+        }
+      ]
+      
+      
+    },
+
+    async obtenerDatosRegiones() {
+      try {
+        let datos = await axios.get(
+          "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto4/2022-01-14-CasosConfirmados-totalRegional.csv"
+        );
+        let lines = datos.data.split("\n");
+        for (let i = 1 ; i < lines.length; i++) {
+        
+        let currentline = lines[i].split(",");
+          for (let j = 0; j < 1; j++) {
+            
+            if ((currentline[0]!="Total")&(currentline[0]!="Se desconoce@")) {
+             this.data.push(new this.objetoDatos(currentline[0], currentline[8]));
+              
+           }
+                     
+          }
+
+        }
+    this.cargaOpcionesGrafico();
+
+
+      } catch (error) {
+        console.log(error);
+      }
+    },
+
+    objetoDatos(name, cantidad) {
+      this.x = name;
+      this.y = cantidad;
+    },
+
+  },
+  created() {
+    this.obtenerDatosRegiones();
+  },
+};
+</script>
+
+<style></style>
