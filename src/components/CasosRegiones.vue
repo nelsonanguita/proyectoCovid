@@ -16,7 +16,7 @@
 
           <v-card-actions class="justify-center">
             <apexchart
-                        :style="{width: vb_celular ? '1000' : '10'}"
+            :style="{width: vb_celular ? '1000' : '10'}"
 
             type="treemap"
             :series="series"
