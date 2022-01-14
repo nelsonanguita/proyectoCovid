@@ -6,13 +6,13 @@
           elevation="24"
           :loading="loading"
           hover
-          max-width="250"
+        max-width="400"
           class="mx-auto transition-swing"
         >
           <template slot="progress">
             <v-progress-linear
               color="deep-purple"
-              height="3"
+              height="5"
               indeterminate
             ></v-progress-linear>
           </template>

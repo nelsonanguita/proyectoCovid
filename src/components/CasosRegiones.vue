@@ -8,7 +8,7 @@
           elevation="5"
         class=" mx-auto  transition-swing"
           width="600"
-          height="410"
+          
         >
           <v-card-title primary-title class="justify-center">
             Casos activos en Regiones
@@ -16,7 +16,6 @@
 
           <v-card-actions class="justify-center">
             <apexchart
-            :style="{width: vb_celular ? '1000' : '10'}"
 
             type="treemap"
             :series="series"
