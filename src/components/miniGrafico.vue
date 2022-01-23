@@ -69,6 +69,9 @@ export default {
             xaxis: {
               categories: this.categorias,
             },
+             dataLabels: {
+              enabled: true,
+            },
           legend: {
           show: false,
         },
@@ -92,7 +95,7 @@ export default {
           "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto49/Positividad_Diaria_Media_T.csv"
         );
         let lines = datos.data.split("\n");
-        for (let i = lines.length - 60; i < lines.length; i++) {
+        for (let i = lines.length - 6; i < lines.length; i++) {
           let currentline = lines[i].split(",");
           for (let j = 0; j < 1; j++) {
             currentline[0] = currentline[0]; //Cfecha

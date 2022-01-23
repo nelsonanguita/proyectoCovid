@@ -103,7 +103,7 @@ export default {
     async obtenerDatosRegiones() {
       try {
         let datos = await axios.get(
-          "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto4/2022-01-21-CasosConfirmados-totalRegional.csv"
+          "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto4/2022-01-23-CasosConfirmados-totalRegional.csv"
         );
         let lines = datos.data.split("\n");
         for (let i = 1 ; i < lines.length; i++) {
