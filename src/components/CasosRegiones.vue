@@ -11,8 +11,12 @@
           
         >
           <v-card-title primary-title class="justify-center">
-            Casos activos en Regiones
+            Casos por Regiones
           </v-card-title>
+          <v-card-subtitle>
+            Activos confirmados
+          </v-card-subtitle>
+
 
           <v-card-actions class="justify-center">
             <apexchart
@@ -77,12 +81,17 @@ export default {
                   ranges: [
                     {
                       from: 0,
-                      to: 700,
+                      to: 2000,
                       color: '#4CAF50'
                     },
                     {
-                      from: 701,
-                      to: 10000,
+                      from: 2001,
+                      to: 9999,
+                      color: '#FFD800'
+                    },
+                    {
+                      from: 10000,
+                      to: 30000,
                       color: '#ff0000'
                     }
                   ]
@@ -112,7 +121,7 @@ export default {
           for (let j = 0; j < 1; j++) {
             
             if ((currentline[0]!="Total")&(currentline[0]!="Se desconoce@")) {
-             this.data.push(new this.objetoDatos(currentline[0], currentline[8]));
+             this.data.push(new this.objetoDatos(currentline[0], currentline[13]));
               
            }
                      
