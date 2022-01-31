@@ -81,17 +81,17 @@ export default {
                   ranges: [
                     {
                       from: 0,
-                      to: 2000,
+                      to: 5000,
                       color: '#4CAF50'
                     },
                     {
-                      from: 2001,
+                      from: 5001,
                       to: 9999,
                       color: '#FFD800'
                     },
                     {
                       from: 10000,
-                      to: 30000,
+                      to: 50000,
                       color: '#ff0000'
                     }
                   ]
@@ -112,7 +112,7 @@ export default {
     async obtenerDatosRegiones() {
       try {
         let datos = await axios.get(
-          "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto4/2022-01-23-CasosConfirmados-totalRegional.csv"
+          "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto4/2022-01-30-CasosConfirmados-totalRegional.csv"
         );
         let lines = datos.data.split("\n");
         for (let i = 1 ; i < lines.length; i++) {
