@@ -47,6 +47,7 @@ export default {
       data:[],
       series: [],
       chartOptions: {},
+      
     };
   },
 
@@ -56,6 +57,11 @@ export default {
         legend: {
           show: false,
         },
+          tooltip: {
+            theme: 'dark'
+        },
+
+
         chart: {
           height: 350,
           type: "treemap",

@@ -67,7 +67,7 @@ export default {
     };
   },
   watch: {
-    theme: localStorage.getItem("theme"),
+   // theme: localStorage.getItem("theme"),
   },
 };
 </script>

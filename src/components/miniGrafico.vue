@@ -75,6 +75,9 @@ export default {
           legend: {
           show: false,
         },
+             tooltip: {
+            theme: 'dark'
+        },
       };
     },
     camasUCI() {
@@ -87,6 +90,7 @@ export default {
           legend: {
           show: true,
         },
+        
       };
     },
     async obtenerPosividad() {
