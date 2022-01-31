@@ -10,7 +10,7 @@
             <Vacunados />
           </v-col>
         </v-row>
-                <v-row class="mx-auto">
+        <v-row class="mx-auto">
           <v-col cols="12" xs="12" sm="12" md="12" xl="12">
             <Regiones />
           </v-col>
@@ -44,12 +44,9 @@ import Grafico from "../components/Grafico.vue";
 import NavBar from "../components/NavBar.vue";
 import InfoDiaria from "../components/InfoDiaria";
 import MiniGrafico from "../components/miniGrafico.vue";
-import CamaUCI from "../components/CamaUCI";
 import GraficoMain from "../components/GraficoMain.vue";
 import Vacunados from "../components/DosisPorVacuna.vue";
-import Exportador from "../components/exportador.vue";
 import Regiones from "../components/CasosRegiones.vue";
-
 
 export default {
   components: {
@@ -58,11 +55,10 @@ export default {
     InfoDiaria,
     NavBar,
     GraficoMain,
-    CamaUCI,
+
     MiniGrafico,
-    Exportador,
     Vacunados,
-    Regiones
+    Regiones,
   },
   data() {
     return {

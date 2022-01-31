@@ -13,6 +13,7 @@
             v-model="search"
             onkeyup="javascript:this.value=this.value.toUpperCase();"
             v-on:keyup.enter="Accion"
+            autocomplete="off"
           >
           </v-text-field>
         </v-col>
