@@ -130,7 +130,7 @@ export default {
         let currentline = lines[i].split(",");
           for (let j = 0; j < 1; j++) {
             
-            if ((currentline[0]!="Total")&(currentline[0]!="Se desconoce@")) {
+            if ((currentline[0]!="Total")&(currentline[0]!="Se desconoce región de origen")) {
              this.data.push(new this.objetoDatos(currentline[0], currentline[13]));
               
            }
