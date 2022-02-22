@@ -1,21 +1,22 @@
 <template>
-  <v-layout  wrap  mt-5 
- >
+  <v-layout  mt-5>
     <v-flex sm6 xs12 md6 lg3>
-      <v-card class="ma-3" max-width="350" max-height="100"      elevation="15"            :loading="loading"
->
+      <v-card
+        class="ma-3"
+        max-width="240"
+        max-height="100"
+        elevation="15"
+        :loading="loading"
+      >
         <v-list-item>
-          <v-list-item-avatar >
+          <v-list-item-avatar>
             <v-sheet color="orange" width="50" height="50" elevation="1">
               <v-icon dark large>mdi-needle</v-icon>
-
             </v-sheet>
           </v-list-item-avatar>
           <v-list-item-content>
-                      
-                      
-           <div class="overline text-right">PRIMERA DOSIS</div>
-           
+            <div class="overline text-right">PRIMERA DOSIS</div>
+
             <v-list-item-title class="headline mb-1 text-right">{{
               dosis1
             }}</v-list-item-title>
@@ -25,12 +26,10 @@
       </v-card>
     </v-flex>
 
-  
-
     <v-flex sm6 xs12 md6 lg3>
-      <v-card class="ma-3" max-width="350" max-height="100" elevation="15">
+      <v-card class="ma-3" max-width="240" max-height="100" elevation="15">
         <v-list-item>
-          <v-list-item-avatar tile >
+          <v-list-item-avatar tile>
             <v-sheet color="blue" width="120" height="60" elevation="120">
               <v-icon dark large>mdi-signal-5g</v-icon>
             </v-sheet>
@@ -47,7 +46,7 @@
     </v-flex>
 
     <v-flex sm6 xs12 md6 lg3>
-      <v-card class="ma-3" max-width="350" max-height="100" elevation="15">
+      <v-card class="ma-3" max-width="240" max-height="100" elevation="15">
         <v-list-item>
           <v-list-item-avatar tile>
             <v-sheet color="green" width="120" height="60" elevation="120">
@@ -66,9 +65,28 @@
     </v-flex>
 
     <v-flex sm6 xs12 md6 lg3>
-      <v-card class="ma-3" max-width="350" max-height="100" elevation="15">
+      <v-card class="ma-3" max-width="240" max-height="100" elevation="15">
         <v-list-item>
-          <v-list-item-avatar  >
+          <v-list-item-avatar tile>
+            <v-sheet color="red" width="120" height="60" elevation="120">
+              <v-icon dark large>mdi-radioactive</v-icon>
+            </v-sheet>
+          </v-list-item-avatar>
+          <v-list-item-content>
+            <div class="overline text-right">Cuarta Dosis</div>
+            <v-list-item-title class="headline mb-1 text-right">{{
+              cuarta
+            }}</v-list-item-title>
+            <div></div>
+          </v-list-item-content>
+        </v-list-item>
+      </v-card>
+    </v-flex>
+
+    <v-flex sm6 xs12 md6 lg3>
+      <v-card class="ma-3" max-width="240" max-height="100" elevation="15">
+        <v-list-item>
+          <v-list-item-avatar>
             <v-sheet color="pink" width="120" height="60" elevation="120">
               <v-icon dark large>mdi-emoticon-frown</v-icon>
             </v-sheet>
@@ -95,8 +113,9 @@ export default {
       dosis1: "",
       dosis2: "",
       unica: "",
+      cuarta:"",
       refuerzo: "",
-      loading:true,
+      loading: true,
     };
   },
   methods: {
@@ -120,12 +139,12 @@ export default {
         this.dosis1 = new Intl.NumberFormat("de-DE").format(currentline[1]); //primera dosis
         this.dosis2 = new Intl.NumberFormat("de-DE").format(currentline[2]); //segunda dosis
         this.unica = new Intl.NumberFormat("de-DE").format(currentline[3]); //unica dosis
+        this.cuarta = new Intl.NumberFormat("de-DE").format(currentline[5]); //cuarta dosis
         this.refuerzo = new Intl.NumberFormat("de-DE").format(currentline[4]); //refuerzo dosis
       }
       this.loading = false;
-
     },
-     reserve() {
+    reserve() {
       this.loading = true;
       setTimeout(() => (this.loading = false), 200);
     },
@@ -133,7 +152,6 @@ export default {
   created() {
     this.reserve();
     this.getVacunas();
-       
   },
 };
 </script>
