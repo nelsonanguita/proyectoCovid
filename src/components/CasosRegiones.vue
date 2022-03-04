@@ -120,7 +120,7 @@ export default {
             
       try {
         let datos = await axios.get(
-          "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto4/2022-02-22-CasosConfirmados-totalRegional.csv"
+          "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto4/2022-03-04-CasosConfirmados-totalRegional.csv"
         );
                
         let lines = datos.data.split("\n");
