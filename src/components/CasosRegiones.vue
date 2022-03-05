@@ -7,8 +7,10 @@
             <v-card-title primary-title class="justify-center">
               Casos por Regiones
             </v-card-title>
-            <v-card-subtitle> Activos confirmados </v-card-subtitle>
-
+            <v-card-subtitle> 
+              ACTIVOS CONFIRMADOS {{fecha}}
+           </v-card-subtitle>
+             
             <v-card-actions class="justify-center">
               <apexchart
                 type="treemap"
@@ -35,6 +37,7 @@ export default {
       data: [],
       series: [],
       chartOptions: {},
+      fecha:''
     };
   },
 
@@ -106,7 +109,9 @@ export default {
         );
         let lines = datos.data.split("\n");
         for (let i = (lines.length-103); i < (lines.length-86); i++) {
+          
           let currentline = lines[i].split(",");
+          this.fecha = currentline[2]
           for (let j = 0; j < 1; j++) {
             if (
               (currentline[0] != "Total") &
