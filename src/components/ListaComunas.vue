@@ -127,7 +127,6 @@ export default {
     listaAgregar: function(val, oldval) {
        this.search = val;
        this.Accion()
-      // this.agregarComuna();
       this.listaAgregar = "";
     },
   },
